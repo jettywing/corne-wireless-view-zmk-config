@@ -23,12 +23,12 @@
         };
 
         ezcopy {
-            bindings = <&kp K_COPY>;
+            bindings = <&copy>;
             key-positions = <2 3>;
         };
 
         ezpaste {
-            bindings = <&kp K_PASTE>;
+            bindings = <&paste>;
             key-positions = <14 15>;
         };
 
@@ -51,6 +51,19 @@
                 <&kp LEFT_GUI>;
 
             label = "COPY";
+        };
+        paste: paste {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_GUI &kp LEFT_ALT &kp LSHFT>,
+                <&macro_tap>,
+                <&kp V>,
+                <&macro_release>,
+                <&kp LEFT_GUI &kp LEFT_ALT &kp LSHFT>;
+
+            label = "PASTE";
         };
     };
 
