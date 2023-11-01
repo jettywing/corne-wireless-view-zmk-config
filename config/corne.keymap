@@ -23,13 +23,45 @@
         };
 
         ezcopy {
-            bindings = <&kp LG(C)>;
+            bindings = <&kp K_COPY>;
             key-positions = <2 3>;
         };
 
         ezpaste {
-            bindings = <&kp LG(LS(LA(P)))>;
+            bindings = <&kp K_PASTE>;
             key-positions = <14 15>;
+        };
+
+        ezcolon {
+            bindings = <&kp COLON>;
+            key-positions = <15 20>;
+        };
+    };
+
+    macros {
+        copy: copy {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_GUI>,
+                <&macro_tap>,
+                <&kp C>,
+                <&macro_release>,
+                <&kp LEFT_GUI>;
+
+            label = "COPY";
+        };
+    };
+
+    behaviors {
+        taptog: taptog {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TAPTOG";
+            bindings = <&mo>, <&tog>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <170>;
         };
     };
 
@@ -45,10 +77,10 @@
 
             label = "Base";
             bindings = <
-&kp ESC  &kp Q        &kp W       &kp F       &kp P        &kp B          &kp K    &kp L        &kp U           &kp Y         &kp SEMI         &tog 2
+&kp ESC  &kp Q        &kp W       &kp F       &kp P        &kp B          &kp K    &kp L        &kp U           &kp Y         &kp SEMI         &kp TILDE
 &kp TAB  &kp A        &kp R       &kp S       &mt LSHFT T  &kp G          &kp M    &mt RSHFT N  &kp E           &kp I         &kp O            &kp SQT
-&kp DEL  &mt LCTRL Z  &mt LALT X  &mt LGUI C  &kp D        &kp V          &kp J    &kp H        &mt RGUI COMMA  &mt RALT DOT  &mt RCTRL SLASH  &tog 1
-                                  &kp LGUI    &mo 1        &lt 2 SPACE    &kp RET  &kp BSPC     &tog 2
+&kp DEL  &mt LCTRL Z  &mt LALT X  &mt LGUI C  &kp D        &kp V          &kp J    &kp H        &mt RGUI COMMA  &mt RALT DOT  &mt RCTRL SLASH  &sk LS(LEFT_GUI)
+                                  &kp LGUI    &taptog 1 1  &lt 2 SPACE    &kp RET  &kp BSPC     &taptog 2 2
             >;
         };
 
@@ -61,9 +93,9 @@
 
             label = "Lower";
             bindings = <
-&kp TAB     &kp EXCL     &kp N7  &kp N8    &kp N9  &kp HASH     &kp CARET  &kp AMPS   &kp ASTRK      &kp LPAR       &kp RPAR        &kp BSLH
-&bt BT_CLR  &mt LGUI N0  &kp N4  &kp N5    &kp N6  &kp DLLR     &kp TILDE  &kp MINUS  &kp EQUAL      &kp LBKT       &kp RBKT        &kp PIPE
-&kp LSHFT   &kp AT       &kp N1  &kp N2    &kp N3  &kp PRCNT    &kp GRAVE  &kp UNDER  &mt RGUI PLUS  &mt RALT LBRC  &mt RCTRL RBRC  &trans
+&kp COLON  &kp EXCL      &kp N7  &kp N8    &kp N9  &kp HASH     &kp CARET  &kp AMPS   &kp ASTRK      &kp LPAR       &kp RPAR        &kp BSLH
+&kp SLASH  &mt LGUI N0   &kp N4  &kp N5    &kp N6  &kp DLLR     &kp TILDE  &kp MINUS  &kp EQUAL      &kp LBKT       &kp RBKT        &kp PIPE
+&kp DOT    &mt LCTRL AT  &kp N1  &kp N2    &kp N3  &kp PRCNT    &kp GRAVE  &kp UNDER  &mt RGUI PLUS  &mt RALT LBRC  &mt RCTRL RBRC  &trans
                                  &kp LGUI  &to 0   &kp SPACE    &kp RET    &trans     &kp RALT
             >;
         };
