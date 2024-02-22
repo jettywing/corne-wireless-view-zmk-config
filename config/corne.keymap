@@ -85,6 +85,14 @@
 
             label = "UNFORMPASTE";
         };
+
+        lock: lock {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press>, <&kp LGUI &kp>;
+
+            label = "LOCK";
+        };
     };
 
     behaviors {
@@ -105,6 +113,13 @@
             #binding-cells = <2>;
             tapping-term-ms = <180>;
         };
+
+        t1: t1 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "T1";
+            #binding-cells = <0>;
+            bindings = <&none>, <&to 1>;
+        };
     };
 
     keymap {
@@ -119,10 +134,10 @@
 
             label = "Base";
             bindings = <
-&kp ESC        &kp Q        &kp W       &kp F               &kp P        &kp B          &kp K    &kp L        &kp U           &kp Y         &kp SEMI         &kp EXCL
-&mt LSHFT TAB  &kp A        &kp R       &kp S               &kp T        &kp G          &kp M    &lt 1 N      &kp E           &kp I         &kp O            &kp SQT
-&kp DEL        &mt LCTRL Z  &mt LALT X  &mt LGUI C          &mt LSHFT D  &kp V          &kp J    &mt RSHFT H  &mt RGUI COMMA  &mt RALT DOT  &mt RCTRL SLASH  &taptog 1 1
-                                        &th LGUI LG(SPACE)  &mo 1        &lt 2 SPACE    &kp RET  &kp BSPC     &taptog 2 2
+&kp ESC        &kp Q        &kp W       &kp F               &kp P        &kp B          &kp K    &kp L            &kp U           &kp Y         &kp SEMI         &kp EXCL
+&mt LSHFT TAB  &kp A        &kp R       &kp S               &kp T        &kp G          &kp M    &kp N            &kp E           &kp I         &kp O            &kp SQT
+&kp DEL        &mt LCTRL Z  &mt LALT X  &mt LGUI C          &mt LSHFT D  &kp V          &kp J    &mt RSHFT H      &mt RGUI COMMA  &mt RALT DOT  &mt RCTRL SLASH  &t1
+                                        &th LGUI LG(SPACE)  &mo 1        &lt 2 SPACE    &kp RET  &lt 1 BACKSPACE  &taptog 2 2
             >;
         };
 
@@ -151,10 +166,19 @@
 
             label = "Raise";
             bindings = <
-&kp LG(GRAVE)  &kp LA(N1)    &kp LA(N2)    &kp LA(N3)    &kp LA(N4)  &kp LA(N5)    &kp C_PREV        &kp C_NEXT        &kp C_PLAY_PAUSE  &kp C_VOL_DN              &kp C_VOL_UP  &kp C_MUTE
-&bt BT_CLR     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans      &trans        &kp HOME          &kp LEFT          &kp DOWN          &kp UP                    &kp RIGHT     &kp END
-&kp LSHFT      &trans        &trans        &trans        &trans      &trans        &kp LG(LS(LEFT))  &kp CAPS          &kp F12           &kp LG(LC(LS(NUMBER_4)))  &trans        &trans
-                                           &kp LGUI      &to 0       &kp SPACE     &kp RSHFT         &kp LA(LS(LEFT))  &trans
+&kp LG(GRAVE)  &kp LA(N1)    &kp LA(N2)    &kp LA(N3)    &kp LA(N4)  &kp LA(N5)    &kp C_PREV        &kp C_NEXT     &kp C_PLAY_PAUSE  &kp C_VOL_DN              &kp C_VOL_UP  &kp C_MUTE
+&bt BT_CLR     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &mkp MB1    &trans        &kp HOME          &kp LEFT       &kp DOWN          &kp UP                    &kp RIGHT     &kp END
+&kp LSHFT      &trans        &trans        &trans        &trans      &trans        &kp LG(LS(LEFT))  &kp CAPS       &kp F12           &kp LG(LC(LS(NUMBER_4)))  &trans        &trans
+                                           &kp LGUI      &to 0       &kp SPACE     &kp RSHFT         &kp BACKSPACE  &trans
+            >;
+        };
+
+        mous_layer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
     };
