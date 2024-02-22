@@ -85,14 +85,6 @@
 
             label = "UNFORMPASTE";
         };
-
-        lock: lock {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_press>, <&kp LGUI &kp>;
-
-            label = "LOCK";
-        };
     };
 
     behaviors {
@@ -170,15 +162,6 @@
 &bt BT_CLR     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &mkp MB1    &trans        &kp HOME          &kp LEFT       &kp DOWN          &kp UP                    &kp RIGHT     &kp END
 &kp LSHFT      &trans        &trans        &trans        &trans      &trans        &kp LG(LS(LEFT))  &kp CAPS       &kp F12           &kp LG(LC(LS(NUMBER_4)))  &trans        &trans
                                            &kp LGUI      &to 0       &kp SPACE     &kp RSHFT         &kp BACKSPACE  &trans
-            >;
-        };
-
-        mous_layer {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
     };
