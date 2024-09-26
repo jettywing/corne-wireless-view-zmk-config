@@ -129,7 +129,7 @@
             bindings = <
 &kp ESC        &kp Q        &kp W       &kp F               &kp P        &kp B          &kp K    &kp L            &kp U           &kp Y         &kp SEMI         &kp EXCL
 &mt LSHFT TAB  &kp A        &kp R       &kp S               &kp T        &kp G          &kp M    &kp N            &kp E           &kp I         &kp O            &kp SQT
-&kp DEL        &mt LCTRL Z  &mt LALT X  &mt LGUI C          &mt LSHFT D  &kp V          &kp J    &mt RSHFT H      &mt RGUI COMMA  &mt RALT DOT  &mt RCTRL SLASH  &tlwr
+&kp DEL        &mt LCTRL Z  &mt LALT X  &mt LGUI C          &mt LSHFT D  &kp V          &kp J    &mt RSHFT H      &mt RGUI COMMA  &mt RALT DOT  &mt RCTRL SLASH  &key_repeat
                                         &th LGUI LG(SPACE)  &mo 1        &lt 2 SPACE    &kp RET  &lt 1 BACKSPACE  &taptog 2 2
             >;
         };
@@ -143,10 +143,10 @@
 
             label = "Lower";
             bindings = <
-&kp COLON  &kp EXCL      &kp N7  &kp N8   &kp N9  &kp HASH     &kp CARET  &kp AMPS   &kp ASTRK      &kp LPAR       &kp RPAR        &kp BSLH
-&kp SLASH  &mt LGUI AT   &kp N4  &kp N5   &kp N6  &kp DLLR     &kp GRAVE  &kp MINUS  &kp EQUAL      &kp LBKT       &kp RBKT        &kp PIPE
-&trans     &mt LCTRL N0  &kp N1  &kp N2   &kp N3  &kp PRCNT    &kp TILDE  &kp UNDER  &mt RGUI PLUS  &mt RALT LBRC  &mt RCTRL RBRC  &kp BACKSPACE
-                                 &kp DOT  &to 0   &kp SPACE    &kp RET    &trans     &kp RALT
+&kp COLON  &kp EXCL      &kp N7           &kp N8       &kp N9         &kp HASH     &kp CARET  &kp AMPS          &kp ASTRK      &kp LPAR       &kp RPAR        &kp BSLH
+&kp SLASH  &mt LGUI AT   &kp N4           &kp N5       &kp N6         &kp DLLR     &kp GRAVE  &kp MINUS         &kp EQUAL      &kp LBKT       &kp RBKT        &kp PIPE
+&trans     &mt LCTRL N0  &mt N1 LEFT_ALT  &mt N2 LCMD  &mt N3 LSHIFT  &kp PRCNT    &kp TILDE  &mt UNDER RSHIFT  &mt RGUI PLUS  &mt RALT LBRC  &mt RCTRL RBRC  &kp BACKSPACE
+                                          &kp DOT      &to 0          &kp SPACE    &kp RET    &trans            &kp RALT
             >;
         };
 
